@@ -1,16 +1,19 @@
-package com.zetcode.sprite;
+package spriteframework.sprite;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 
 public class Sprite {
 
     private boolean visible;
-    private Image image;
+    protected Image image;
     private boolean dying;
 
-    int x;
-    int y;
-    int dx;
+    protected int x;
+    protected int y;
+    protected int imageWidth;
+    protected int imageHeight;
+    protected int dx;
 
     public Sprite() {
 
@@ -62,6 +65,27 @@ public class Sprite {
         return x;
     }
 
+    public int getImageWidth() {
+
+        return imageWidth;
+    }
+
+    public int getImageHeight() {
+
+        return imageHeight;
+    }
+    
+    public Rectangle getRect() {
+
+        return new Rectangle(x, y,
+                image.getWidth(null), image.getHeight(null));
+    }
+
+    public void getImageDimensions() {
+
+        imageWidth = image.getWidth(null);
+        imageHeight = image.getHeight(null);
+    }
     public void setDying(boolean dying) {
 
         this.dying = dying;
@@ -70,5 +94,15 @@ public class Sprite {
     public boolean isDying() {
 
         return this.dying;
+    }
+    
+    public void moveX(int direction) {
+
+        this.x += direction;
+    }
+    
+    public void moveY(int direction) {
+
+        this.y += direction;
     }
 }
