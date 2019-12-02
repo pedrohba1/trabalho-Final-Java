@@ -1,8 +1,7 @@
-# Java Space Invaders
-Java Space Invaders game clone source code 
+# Java Games
 
-http://zetcode.com/tutorials/javagamestutorial/spaceinvaders/
+Two Java games made using Abstract Factory pattern Project.
 
+Space Invaders:
 ![Space Invaders screenshot](spaceinvaders.png)
 
-Available under 2-Clause BSD License https://opensource.org/licenses/BSD-2-Clause  
