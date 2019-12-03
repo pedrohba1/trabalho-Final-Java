@@ -19,9 +19,7 @@ public class SpaceInvadersBoard extends AbstractBoard{
 
     private int direction = -1;
     private int deaths = 0;
-
     private String explImg = "images/explosion.png";
-    
     
     protected void createPlayerSprite() {
     	PlayerShip player = new PlayerShip();
@@ -37,6 +35,11 @@ public class SpaceInvadersBoard extends AbstractBoard{
             }
         }
     }
+    
+	@Override
+	protected void createShotSprites() {
+        shot = new Shot();		
+	}
     
     private void drawShot(Graphics g) {
     	if (shot.isVisible()) {
@@ -188,22 +191,12 @@ public class SpaceInvadersBoard extends AbstractBoard{
             }
 
             if (!bomb.isDestroyed()) {
-
                 bomb.setY(bomb.getY() + 1);
-
                 if (bomb.getY() >= Commons.GROUND - Commons.BOMB_HEIGHT) {
-
                     bomb.setDestroyed(true);
                 }
             }
         }
 	}
-
-	@Override
-	protected void createShotSprites() {
-        shot = new Shot();		
-	}
-
-	
 }
 

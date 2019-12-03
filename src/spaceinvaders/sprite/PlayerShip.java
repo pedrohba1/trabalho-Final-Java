@@ -16,9 +16,7 @@ public class PlayerShip extends AbstractPlayer{
 	//isso precisa pra acessar os players;
 	//TODO: 
 	//dúvida: Isso aqui não deveria ficar só na classe abstrata??
-	
-    protected LinkedList<AbstractPlayer> players;	
-    
+	    
 	private Boolean health;
     public PlayerShip() {
         initPlayerShip(Commons.PLAYER_INIT_X, Commons.PLAYER_INIT_Y);

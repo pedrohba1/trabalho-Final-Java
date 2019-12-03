@@ -12,7 +12,6 @@ public class Shot extends BadSprite {
     }
 
     public Shot(int x, int y) {
-
         initShot(x, y);
     }
 
