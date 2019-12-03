@@ -1,21 +1,24 @@
 package spaceinvaders.sprite;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
 
 import spriteframework.sprite.BadSprite;
 import spriteframework.sprite.AbstractPlayer;
-
-
 import spaceinvaders.Commons;
 
 public class PlayerShip extends AbstractPlayer{
 	
-	
-	
 	//isso precisa pra acessar os players;
+	//TODO: 
+	//dúvida: Isso aqui não deveria ficar só na classe abstrata??
+	
     protected LinkedList<AbstractPlayer> players;	
+    
 	private Boolean health;
     public PlayerShip() {
         initPlayerShip(Commons.PLAYER_INIT_X, Commons.PLAYER_INIT_Y);
@@ -52,6 +55,14 @@ public class PlayerShip extends AbstractPlayer{
 	@Override
 	protected void stopMovement() {
 		dx = 0;
+	} 
+	
+	@Override
+	public Shot shoot() {
+	  	int x = this.getX();
+		int y = this.getY();
+		playShotSound();
+		return new Shot(x, y);
 	}
 	
 	@Override
@@ -75,4 +86,16 @@ public class PlayerShip extends AbstractPlayer{
 		//sem movimento para baixo nesse jogo
 	}
 
+	@Override
+	protected void playShotSound() {
+	try {
+		playSound("sounds/effects/laser.wav");
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
+	
+	
+	
 }

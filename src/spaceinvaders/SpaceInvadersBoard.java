@@ -16,14 +16,9 @@ import spriteframework.sprite.AbstractPlayer;
 import spaceinvaders.sprite.*;
 
 public class SpaceInvadersBoard extends AbstractBoard{  
-    //define sprites
-    //private List<BadSprite> aliens;
-    private Shot shot;    
-    
-    // define global control vars   
+
     private int direction = -1;
     private int deaths = 0;
-
 
     private String explImg = "images/explosion.png";
     
@@ -43,9 +38,8 @@ public class SpaceInvadersBoard extends AbstractBoard{
         }
     }
     
-
     private void drawShot(Graphics g) {
-        if (shot.isVisible()) {
+    	if (shot.isVisible()) {
             g.drawImage(shot.getImage(), shot.getX(), shot.getY(), this);
         }
     }
@@ -55,21 +49,17 @@ public class SpaceInvadersBoard extends AbstractBoard{
             drawShot(g);
     }
         
-    protected void processPlayerSprites(AbstractPlayer player, KeyEvent e) {
- 	
-    	int x = player.getX();
-		int y = player.getY();
+    @Override
+	protected void processOtherSprites(AbstractPlayer player, KeyEvent e) {
 		int key = e.getKeyCode();
-
 		if (key == KeyEvent.VK_SPACE) {
 			if (inGame) {
 				if (!shot.isVisible()) {
-					shot = new Shot(x, y);
+					shot = player.shoot();
 				}
 			}
-		}
-	}
-
+		}		
+	}    
     
     protected void update() {
 
@@ -214,10 +204,6 @@ public class SpaceInvadersBoard extends AbstractBoard{
         shot = new Shot();		
 	}
 
-	@Override
-	protected void processOtherSprites(AbstractPlayer player, KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}    
+	
 }
 

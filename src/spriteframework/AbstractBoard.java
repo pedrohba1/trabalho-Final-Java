@@ -4,6 +4,7 @@ package spriteframework;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import spaceinvaders.sprite.Shot;
 import spriteframework.sprite.BadSprite;
 import spriteframework.sprite.AbstractPlayer;
 
@@ -30,6 +31,7 @@ public abstract class AbstractBoard extends JPanel {
 //    private List<Alien> aliens;
     protected LinkedList<AbstractPlayer> players;
     protected LinkedList<BadSprite> badSprites;
+    protected Shot shot;
 //    private Shot shot;
 //    
     // define global control  vars   
@@ -51,14 +53,12 @@ public abstract class AbstractBoard extends JPanel {
     protected abstract void createShotSprites();
     
     protected abstract void createPlayerSprite();
-    protected abstract void processPlayerSprites(AbstractPlayer player,KeyEvent e);
     
     protected abstract void drawOtherSprites(Graphics g);
     protected abstract void processOtherSprites(AbstractPlayer player,KeyEvent e);
        
     protected abstract void update();
     
-
     public AbstractBoard() {
         initBoard();	        
 		//        shot = new Shot();
@@ -104,16 +104,12 @@ public abstract class AbstractBoard extends JPanel {
    
    
     private void drawBadSprites(Graphics g) {
-
         for (BadSprite bad : badSprites) {
-
             if (bad.isVisible()) {
-
                 g.drawImage(bad.getImage(), bad.getX(), bad.getY(), this);
             }
 
             if (bad.isDying()) {
-
                 bad.die();
             }
             if (bad.getBadnesses()!= null) {
@@ -131,17 +127,12 @@ public abstract class AbstractBoard extends JPanel {
     		if (player.isVisible()) {
     			g.drawImage(player.getImage(), player.getX(), player.getY(), this);
     		}
-
     		if (player.isDying()) {
     			player.die();
     			inGame = false;
     		}
     	}
     }
-
-
-
-
 
     @Override
     public void paintComponent(Graphics g) {
@@ -170,11 +161,9 @@ public abstract class AbstractBoard extends JPanel {
             drawOtherSprites(g);
 
         } else {
-
             if (timer.isRunning()) {
                 timer.stop();
             }
-
             gameOver(g);
         }
 
@@ -182,18 +171,14 @@ public abstract class AbstractBoard extends JPanel {
     }
 
     private void gameOver(Graphics g) {
-
         g.setColor(Color.black);
         g.fillRect(0, 0, Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
-
         g.setColor(new Color(0, 32, 48));
         g.fillRect(50, Commons.BOARD_WIDTH / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
         g.setColor(Color.white);
         g.drawRect(50, Commons.BOARD_WIDTH / 2 - 30, Commons.BOARD_WIDTH - 100, 50);
-
         Font small = new Font("Helvetica", Font.BOLD, 14);
         FontMetrics fontMetrics = this.getFontMetrics(small);
-
         g.setColor(Color.white);
         g.setFont(small);
         g.drawString(message, (Commons.BOARD_WIDTH - fontMetrics.stringWidth(message)) / 2,
@@ -203,7 +188,6 @@ public abstract class AbstractBoard extends JPanel {
 
 
     private void doGameCycle() {
-
         update();
         repaint();
     }
@@ -211,27 +195,25 @@ public abstract class AbstractBoard extends JPanel {
 
 
 	private class GameCycle implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
-
             doGameCycle();
         }
     }
 
     private class TAdapter extends KeyAdapter {
-
         @Override
         public void keyReleased(KeyEvent e) {
             for (AbstractPlayer player: players)
                  player.keyReleased(e);
         }
-
         @Override
         public void keyPressed(KeyEvent e) {
         	for (AbstractPlayer player: players) {
                 player.keyPressed(e);
-                processPlayerSprites(player,e); // hotspot
+                //isso aqui precisa ser removido daqui.
+                //quem tem que realizar o tiro é o jogador.
+                processOtherSprites(player,e);
         	}
         }
     }
