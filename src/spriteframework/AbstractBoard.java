@@ -126,7 +126,8 @@ public abstract class AbstractBoard extends JPanel {
 
             g.drawLine(0, Commons.GROUND,
                     Commons.BOARD_WIDTH, Commons.GROUND);
-
+            
+            drawPlayers(g);
             drawBadSprites(g);		//se isso aqui fosse um template method mesmo, essse método nessa linha teria que ser abstrato.
             drawOtherSprites(g);
 
