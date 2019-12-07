@@ -4,7 +4,9 @@ import javax.swing.JFrame;
 
 public abstract class MainFrame extends JFrame  {
 
-    // hotspot
+	int boardWith;
+	int boardHeight;
+	
     protected abstract AbstractBoard createBoard();
     
     public MainFrame(String t) {
@@ -12,11 +14,19 @@ public abstract class MainFrame extends JFrame  {
         add(createBoard());
 		
 		setTitle(t);
-		setSize(Commons.BOARD_WIDTH, Commons.BOARD_HEIGHT);
+		setSize(boardWith, boardHeight);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setVisible(true);
-    }    
+    } 
+    
+    public void setFrameWidth (int boardWidth) {
+    	this.boardWith = boardWidth;
+    }
+
+    public void setFrameHeight (int boardHeight) {
+    	this.boardHeight = boardHeight;
+    }
 }

@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 
 import spriteframework.sprite.BadSprite;
 import spriteframework.sprite.AbstractPlayer;
-import spaceinvaders.Commons;
+import spaceinvaders.CommonsSpaceInvader;
 
 public class PlayerShip extends AbstractPlayer{
 	
@@ -19,7 +19,7 @@ public class PlayerShip extends AbstractPlayer{
 	    
 	private Boolean health;
     public PlayerShip() {
-        initPlayerShip(Commons.PLAYER_INIT_X, Commons.PLAYER_INIT_Y);
+        initPlayerShip(CommonsSpaceInvader.PLAYER_INIT_X, CommonsSpaceInvader.PLAYER_INIT_Y);
     }
 
     //isso para adicionar o PlayerShip como abstractPlayer no AbstractBoard
@@ -30,7 +30,7 @@ public class PlayerShip extends AbstractPlayer{
    private void initPlayerShip(int x, int y) {
     	super.x = x;
     	super.y = y;
-        String playerImg = "images/player.png";
+        String playerImg = "space_invaders_images/player.png";
         ImageIcon ii = new ImageIcon(playerImg);
         setImage(ii.getImage());
         this.health = true;
@@ -67,9 +67,9 @@ public class PlayerShip extends AbstractPlayer{
 	protected void warpOnEdges() {
 		x += dx;     
         if (x <= 0) {
-        	x = Commons.BOARD_WIDTH - 25;
+        	x = CommonsSpaceInvader.BOARD_WIDTH - 25;
         }
-        if (x >= Commons.BOARD_WIDTH - 23) {
+        if (x >= CommonsSpaceInvader.BOARD_WIDTH - 23) {
             x = 1 ;
         }		
 	}

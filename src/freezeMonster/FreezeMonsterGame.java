@@ -15,6 +15,8 @@ public class FreezeMonsterGame extends MainFrame {
 	
 	@Override
 	protected  AbstractBoard createBoard() {
+		setFrameHeight(CommonsFreezeMonster.BOARD_HEIGHT);
+		setFrameWidth(CommonsFreezeMonster.BOARD_WIDTH);
 		return new FreezeMonsterBoard();
 	}
 

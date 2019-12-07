@@ -17,7 +17,7 @@ public class Shot extends BadSprite {
 
     private void initShot(int x, int y) {
 
-        String shotImg = "images/shot.png";
+        String shotImg = "space_invaders_images/shot.png";
         ImageIcon ii = new ImageIcon(shotImg);
         setImage(ii.getImage());
 

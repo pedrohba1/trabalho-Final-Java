@@ -16,24 +16,9 @@ import spaceinvaders.sprite.Shot;
 
 public abstract class AbstractPlayer extends Sprite {
 
+ protected LinkedList<AbstractPlayer> players;	
 	
-    
-    //TODO: Como o tiro é uma feature compartilhada entre ambos os jogos,
-    ///faz sentido que ela seja definida na classe abstrata do jogador.
-    protected LinkedList<AbstractPlayer> players;	
-	
-    
-    //Dúvida:
-    //vale mais a pena eu deixar essa classe act aqui ou criar ela como abstract e 
-    //fazer ela nas concretas?
-    
-    //TODO:
-    //essas classes abaixo precisam ser definidas na PlayerShip e posteriormente 
-    //na classe Concreta que representa o player no freezeMonster.
-    //Uma vez que ambos jogos possuem movimentações diferentes, o Space Invaders
-    //Não precisa implementar o o upMovement() e nem o DownMovement() (ambos pode ficar vazios, ou nem serem declarados)
-    
-	//métodos relacionados a comandos:
+   
 	protected abstract void startLeftMovement();
     protected abstract void startRightMovement();
     protected abstract void startUpMovement();
@@ -60,9 +45,11 @@ public abstract class AbstractPlayer extends Sprite {
         case KeyEvent.VK_RIGHT:
         	startRightMovement();
         	break;
-        
-        
-        	
+        case KeyEvent.VK_UP:
+        	startUpMovement();
+        	break;
+        case KeyEvent.VK_DOWN:
+        	startDownMovement();
 //		TODO: procurar algum jeito de fazer o tiro funcionar aqui dentro
 //        case KeyEvent.VK_SPACE:
 //        	shoot();
