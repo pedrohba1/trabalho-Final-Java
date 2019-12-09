@@ -50,19 +50,20 @@ public class FreezeMonsterBoard extends AbstractBoard{
        	}
         
         
+    	for (AbstractPlayer player: players) {              	
+    		   for (BadSprite monster : badSprites) {
+    	        	if(player.collided(monster)) {
+    	    			System.out.println("dying by" + monster.toString());
+    	                player.setDying(true);
+    	    			};
+        	        	monster.act();   
+    		   }
+    		}
         	//monster movement
-        for (BadSprite monster : badSprites) {
-        	monster.act();   
         	 
         	//if the player collides 
-        	for (AbstractPlayer player: players) {
-              	
-        		System.out.println(monster.getImageHeight());
-        		if(player.collided(monster)) {
-                    player.setDying(true);
-              		};
-             	}
-        }
+        
+        
         
         //monster colliding with each other?
 

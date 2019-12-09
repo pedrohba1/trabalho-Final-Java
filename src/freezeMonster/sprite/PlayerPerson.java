@@ -3,6 +3,7 @@ package freezeMonster.sprite;
 import javax.swing.ImageIcon;
 
 import freezeMonster.CommonsFreezeMonster;
+import spaceinvaders.CommonsSpaceInvader;
 import spaceinvaders.sprite.Shot;
 import spriteframework.Utils;
 import spriteframework.sprite.AbstractPlayer;
@@ -78,10 +79,25 @@ public class PlayerPerson extends AbstractPlayer{
 
 	@Override
 	public boolean collided(BadSprite bad) {
-
+		int playerPositionWidth = this.getX() + CommonsFreezeMonster.MONSTER_WIDTH;
+		int playerPositionHeight = this.getY() +CommonsFreezeMonster.MONSTER_HEIGHT;
 		
-		
-		
+//		
+//		  if (bombX >= (playerX)
+//                  && bombX <= (playerX + CommonsSpaceInvader.PLAYER_WIDTH)
+//                  && bombY >= (playerY)
+//                  && bombY <= (playerY + CommonsSpaceInvader.PLAYER_HEIGHT)) {
+//		
+			  
+		if(bad.isVisible()) {
+			if(bad.getX() >= this.x 
+			   && bad.getX() <= playerPositionWidth
+			   && bad.getY() >= this.y
+			   && bad.getY() <= playerPositionHeight
+					) {
+				return true;
+			}
+		}		
 		return false;
 	}
 
