@@ -25,6 +25,9 @@ public abstract class AbstractPlayer extends Sprite {
     protected abstract void stopVerticalMovement();
     protected abstract void doMovement();
     public abstract Shot shoot();
+    public abstract boolean collided(BadSprite bad);
+    
+    
     
     //outros métodos:
     protected abstract void warpOnEdges();

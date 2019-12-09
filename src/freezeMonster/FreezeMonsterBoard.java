@@ -45,13 +45,29 @@ public class FreezeMonsterBoard extends AbstractBoard{
 	@Override
 	protected void update() {
 		   // player movement
-        for (AbstractPlayer player: players) 
+        for (AbstractPlayer player: players) {
         	player.act();
+       	}
         
+        
+        	//monster movement
         for (BadSprite monster : badSprites) {
-        	monster.act();
-        	
+        	monster.act();   
+        	 
+        	//if the player collides 
+        	for (AbstractPlayer player: players) {
+              	
+        		System.out.println(monster.getImageHeight());
+        		if(player.collided(monster)) {
+                    player.setDying(true);
+              		};
+             	}
         }
+        
+        //monster colliding with each other?
+
+        
+        
         
 	}
 

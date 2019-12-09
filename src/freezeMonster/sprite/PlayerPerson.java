@@ -6,6 +6,7 @@ import freezeMonster.CommonsFreezeMonster;
 import spaceinvaders.sprite.Shot;
 import spriteframework.Utils;
 import spriteframework.sprite.AbstractPlayer;
+import spriteframework.sprite.BadSprite;
 
 public class PlayerPerson extends AbstractPlayer{
 
@@ -73,6 +74,15 @@ public class PlayerPerson extends AbstractPlayer{
 	protected void doMovement() {
 		x += dx;
 		y += dy;
+	}
+
+	@Override
+	public boolean collided(BadSprite bad) {
+
+		
+		
+		
+		return false;
 	}
 
 	

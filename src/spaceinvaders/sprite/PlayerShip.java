@@ -99,6 +99,13 @@ public class PlayerShip extends AbstractPlayer{
 	protected void doMovement() {
 		x += dx;
 	}
+
+
+	@Override
+	public boolean collided(BadSprite bad) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 	

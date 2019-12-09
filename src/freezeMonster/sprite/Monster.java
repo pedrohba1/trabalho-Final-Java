@@ -6,7 +6,6 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 
 import freezeMonster.CommonsFreezeMonster;
-import spaceinvaders.CommonsSpaceInvader;
 import spaceinvaders.sprite.Bomb;
 import spriteframework.Utils;
 import spriteframework.sprite.BadSprite;
@@ -27,7 +26,7 @@ public class Monster extends BadSprite{
 	        String monsterImg = "freeze_monster_images/monster" + monsterNumber + ".png" ;
 	        ImageIcon ii = new ImageIcon(monsterImg);	        
 	        Utils utils = new Utils();
-	        ii = utils.scaleImageIcon(ii, 40, 60);
+	        ii = utils.scaleImageIcon(ii, CommonsFreezeMonster.MONSTER_WIDTH, CommonsFreezeMonster.MONSTER_HEIGHT);
 	        setImage(ii.getImage());
 	        
 	        
@@ -49,7 +48,7 @@ public class Monster extends BadSprite{
 	        	break;
 	        case 3:
 	        	dx = -1;
-	        	dy= 1;
+	        	dy= -1;
 	        	break;
 	        }
 	        
@@ -57,8 +56,9 @@ public class Monster extends BadSprite{
 
 	@Override
 	protected void doMovement() {
-		if(InEdges() != null) {
-			changeMoveDirection(InEdges());
+		String move = InEdges();
+		if(move != null) {
+			changeMoveDirection(move);
 		}
 		x += dx;
 		y += dy;
