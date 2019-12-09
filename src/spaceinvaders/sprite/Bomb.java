@@ -34,6 +34,11 @@ public class Bomb extends BadSprite {
 
         return destroyed;
     }
-    
-    
+
+	@Override
+	protected void doMovement() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

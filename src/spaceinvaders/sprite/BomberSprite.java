@@ -38,4 +38,10 @@ public class BomberSprite extends BadSprite {
 		aBomb.add(bomb);
 		return aBomb;
 	}
+
+	@Override
+	protected void doMovement() {
+		// TODO Auto-generated method stub
+		
+	}
 }

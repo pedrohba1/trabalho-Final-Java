@@ -1,7 +1,12 @@
 package freezeMonster.sprite;
 
+import java.awt.event.KeyEvent;
+import java.util.Random;
+
 import javax.swing.ImageIcon;
 
+import freezeMonster.CommonsFreezeMonster;
+import spaceinvaders.CommonsSpaceInvader;
 import spaceinvaders.sprite.Bomb;
 import spriteframework.Utils;
 import spriteframework.sprite.BadSprite;
@@ -20,11 +25,71 @@ public class Monster extends BadSprite{
 	        this.monsterNumber = monsterNumber;
 	        
 	        String monsterImg = "freeze_monster_images/monster" + monsterNumber + ".png" ;
-	        System.out.println(monsterImg);
 	        ImageIcon ii = new ImageIcon(monsterImg);	        
 	        Utils utils = new Utils();
 	        ii = utils.scaleImageIcon(ii, 40, 60);
 	        setImage(ii.getImage());
+	        
+	        
+	        //gera uma direção inicial aleatória:
+	        Random random = new Random();
+	        int direction = random.nextInt(4);
+	        switch (direction) {
+	        case 0:
+	        	dy = 1;
+	        	dx = 1;
+	        	break;
+	        case 1:
+	        	dy = -1;
+	        	dx = 1;
+	        	break;
+	        case 2:
+	        	dx = 1;
+	        	dy =-1;
+	        	break;
+	        case 3:
+	        	dx = -1;
+	        	dy= 1;
+	        	break;
+	        }
+	        
+	}
+
+	@Override
+	protected void doMovement() {
+		if(InEdges() != null) {
+			changeMoveDirection(InEdges());
+		}
+		x += dx;
+		y += dy;
+	}
+
+	private String InEdges() {
+		if (x <= 0) 
+			return "left";
+        if (x >= CommonsFreezeMonster.BOARD_WIDTH - 60) 
+        	return "right";
+		if (y <= 0) 
+			return "top";
+	    if (y >= CommonsFreezeMonster.BOARD_HEIGHT - 90) 
+	    	return "bottom";
+		return null;
 	}
 	
+	private void changeMoveDirection(String direction) {
+		switch (direction){
+        case "top":
+        	dy = 1;
+        	break;
+        case "bottom":
+        	dy = -1;
+        	break;
+        case "left":
+        	dx = 1;
+        	break;
+        case "right":
+        	dx = -1;
+        	break;	
+		}
+	}
 }

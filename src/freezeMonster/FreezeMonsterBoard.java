@@ -11,6 +11,7 @@ import spaceinvaders.CommonsSpaceInvader;
 import spaceinvaders.sprite.BomberSprite;
 import spriteframework.AbstractBoard;
 import spriteframework.sprite.AbstractPlayer;
+import spriteframework.sprite.BadSprite;
 
 public class FreezeMonsterBoard extends AbstractBoard{
 
@@ -47,7 +48,10 @@ public class FreezeMonsterBoard extends AbstractBoard{
         for (AbstractPlayer player: players) 
         	player.act();
         
-        
+        for (BadSprite monster : badSprites) {
+        	monster.act();
+        	
+        }
         
 	}
 

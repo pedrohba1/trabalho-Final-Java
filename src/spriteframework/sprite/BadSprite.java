@@ -3,13 +3,17 @@ package spriteframework.sprite;
 import java.util.LinkedList;
 
 public abstract class BadSprite extends Sprite {
+	
+	protected abstract void doMovement();
+	
 	public LinkedList<BadSprite>  getBadnesses() {
 		return null;
-	}
+	}	
 	public boolean isDestroyed() {
 		return false;
 	}
-	public void act () {
-		//
+	public void act() {
+		doMovement();
 	}
+
 }

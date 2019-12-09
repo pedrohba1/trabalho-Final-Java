@@ -27,4 +27,10 @@ public class Shot extends BadSprite {
         int V_SPACE = 1;
         setY(y - V_SPACE);
     }
+
+	@Override
+	protected void doMovement() {
+		// TODO Auto-generated method stub
+		
+	}
 }
