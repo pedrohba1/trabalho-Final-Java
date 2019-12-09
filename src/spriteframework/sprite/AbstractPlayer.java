@@ -16,14 +16,14 @@ import spaceinvaders.sprite.Shot;
 
 public abstract class AbstractPlayer extends Sprite {
 
- protected LinkedList<AbstractPlayer> players;	
-	
    
 	protected abstract void startLeftMovement();
     protected abstract void startRightMovement();
     protected abstract void startUpMovement();
     protected abstract void startDownMovement();
-    protected abstract void stopMovement();
+    protected abstract void stopHorizontalMovement();
+    protected abstract void stopVerticalMovement();
+    protected abstract void doMovement();
     public abstract Shot shoot();
     
     //outros métodos:
@@ -31,7 +31,8 @@ public abstract class AbstractPlayer extends Sprite {
     
     protected abstract void playShotSound();
     
-    public void act() { 	
+    public void act() {
+    	doMovement();
     	warpOnEdges();
     }
 
@@ -50,6 +51,7 @@ public abstract class AbstractPlayer extends Sprite {
         	break;
         case KeyEvent.VK_DOWN:
         	startDownMovement();
+        	break;
 //		TODO: procurar algum jeito de fazer o tiro funcionar aqui dentro
 //        case KeyEvent.VK_SPACE:
 //        	shoot();
@@ -62,11 +64,18 @@ public abstract class AbstractPlayer extends Sprite {
         
     	switch (key){
         case KeyEvent.VK_LEFT:
-        	stopMovement();
+        	stopHorizontalMovement();
         	break;
         case KeyEvent.VK_RIGHT:
-        	stopMovement();
+        	stopHorizontalMovement();
         	break;
+        case KeyEvent.VK_UP:
+        	stopVerticalMovement();
+        	break;
+        case KeyEvent.VK_DOWN:
+        	stopVerticalMovement();
+        	break;
+        	
     	}
     }
     

@@ -160,8 +160,7 @@ public class SpaceInvadersBoard extends AbstractBoard{
     protected void updateOtherSprites() {
 		Random generator = new Random();
 
-        for (BadSprite alien : badSprites) {
-
+        for (BadSprite alien : badSprites) { 
             int shot = generator.nextInt(15);
             Bomb bomb = ((BomberSprite)alien).getBomb();
 
@@ -221,7 +220,6 @@ public class SpaceInvadersBoard extends AbstractBoard{
         g.setColor(Color.green);
     	g.drawLine(0, CommonsSpaceInvader.GROUND,CommonsSpaceInvader.BOARD_WIDTH, CommonsSpaceInvader.GROUND);
         super.setBackground(Color.black);
-
 	}
 }
 

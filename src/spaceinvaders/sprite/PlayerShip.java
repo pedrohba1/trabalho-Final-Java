@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import javax.swing.ImageIcon;
 
 import spriteframework.sprite.BadSprite;
+import spriteframework.Utils;
 import spriteframework.sprite.AbstractPlayer;
 import spaceinvaders.CommonsSpaceInvader;
 
@@ -18,11 +19,7 @@ public class PlayerShip extends AbstractPlayer{
         initPlayerShip(CommonsSpaceInvader.PLAYER_INIT_X, CommonsSpaceInvader.PLAYER_INIT_Y);
     }
 
-    //isso para adicionar o PlayerShip como abstractPlayer no AbstractBoard
-    protected void add (AbstractPlayer p) {
-    	players.add(p);
-    }
-
+  
    private void initPlayerShip(int x, int y) {
     	super.x = x;
     	super.y = y;
@@ -46,11 +43,6 @@ public class PlayerShip extends AbstractPlayer{
 	}
 	
 	@Override
-	protected void stopMovement() {
-		dx = 0;
-	} 
-	
-	@Override
 	public Shot shoot() {
 	  	int x = this.getX();
 		int y = this.getY();
@@ -60,7 +52,6 @@ public class PlayerShip extends AbstractPlayer{
 	
 	@Override
 	protected void warpOnEdges() {
-		x += dx;     
         if (x <= 0) {
         	x = CommonsSpaceInvader.BOARD_WIDTH - 25;
         }
@@ -71,12 +62,12 @@ public class PlayerShip extends AbstractPlayer{
 		
 	@Override
 	protected void startUpMovement() {
-		// sem moviemnto pra cima nesse jogo
+
 	}
 
 	@Override
 	protected void startDownMovement() {
-		//sem movimento para baixo nesse jogo
+		
 	}
 
 	@Override
@@ -87,6 +78,26 @@ public class PlayerShip extends AbstractPlayer{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+	}
+
+
+	@Override
+	protected void stopHorizontalMovement() {
+		dx = 0;
+		
+	}
+
+
+	@Override
+	protected void stopVerticalMovement() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	protected void doMovement() {
+		x += dx;
 	}
 	
 	
