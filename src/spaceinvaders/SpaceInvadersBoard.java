@@ -187,7 +187,6 @@ public class SpaceInvadersBoard extends AbstractBoard{
                     players.get(0).setImage(ii.getImage());
                     players.get(0).setDying(true);
                     bomb.setDestroyed(true);
-                    System.out.print("dead");
                 }
             }
 
@@ -221,6 +220,8 @@ public class SpaceInvadersBoard extends AbstractBoard{
         g.fillRect(0, 0, d.width, d.height);
         g.setColor(Color.green);
     	g.drawLine(0, CommonsSpaceInvader.GROUND,CommonsSpaceInvader.BOARD_WIDTH, CommonsSpaceInvader.GROUND);
+        super.setBackground(Color.black);
+
 	}
 }
 

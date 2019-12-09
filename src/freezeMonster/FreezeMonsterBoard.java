@@ -12,13 +12,14 @@ public class FreezeMonsterBoard extends AbstractBoard{
 
 	@Override
 	protected void createBadSprites() {
-		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	protected void createPlayerSprite() {
-		// TODO Auto-generated method stub
-		
+		PlayerPerson person = new PlayerPerson();
+		players.add(person);
+			// TODO Auto-generated method stu
 	}
 
 	@Override
@@ -58,8 +59,9 @@ public class FreezeMonsterBoard extends AbstractBoard{
 
 	@Override
 	protected void drawStaticSprites(Graphics g) {
-		g.setColor(Color.red);
-        g.fillRect(0, 0, d.width, d.height);		
-	}
+		g.setColor(Color.blue);
+        g.fillRect(0, 0, d.width, d.height);
+        super.setBackground(Color.cyan);
+ 	}
 
 }

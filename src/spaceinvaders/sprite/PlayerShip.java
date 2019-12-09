@@ -12,11 +12,7 @@ import spriteframework.sprite.AbstractPlayer;
 import spaceinvaders.CommonsSpaceInvader;
 
 public class PlayerShip extends AbstractPlayer{
-	
-	//isso precisa pra acessar os players;
-	//TODO: 
-	//dúvida: Isso aqui não deveria ficar só na classe abstrata??
-	    
+		    
 	private Boolean health;
     public PlayerShip() {
         initPlayerShip(CommonsSpaceInvader.PLAYER_INIT_X, CommonsSpaceInvader.PLAYER_INIT_Y);
@@ -33,7 +29,6 @@ public class PlayerShip extends AbstractPlayer{
         String playerImg = "space_invaders_images/player.png";
         ImageIcon ii = new ImageIcon(playerImg);
         setImage(ii.getImage());
-        this.health = true;
     }
     	
 	public Boolean gethealth () {

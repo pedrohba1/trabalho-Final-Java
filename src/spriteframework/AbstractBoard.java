@@ -64,15 +64,12 @@ public abstract class AbstractBoard extends JPanel {
     	addKeyListener(new TAdapter());
     	setFocusable(true);
     	d = new Dimension(BOARD_WIDTH, BOARD_HEIGHT);
-    	setBackground(Color.black);
 
     	timer = new Timer(Commons.DELAY, new GameCycle());
     	timer.start();
 
     	badSprites = new LinkedList<BadSprite>();
     	players = new LinkedList<AbstractPlayer>();
-    	
-    	
     	
     	createBadSprites();
     	createShotSprites();
@@ -124,9 +121,7 @@ public abstract class AbstractBoard extends JPanel {
         doDrawing(g);
     }
 
-    
-    
-    
+        
     private void doDrawing(Graphics g1) { // Template Method
         Graphics2D g = (Graphics2D) g1;
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
