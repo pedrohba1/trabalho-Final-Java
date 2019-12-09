@@ -17,9 +17,22 @@ public class FreezeMonsterBoard extends AbstractBoard{
 
 	@Override
 	protected void createBadSprites() {
-	        for (int j = 1; j < 10; j++) {
-	    		Random random= new Random();
-	        	Monster monster = new Monster(random.nextInt(800),random.nextInt(600), j);
+		int spawnX;
+		int spawnY;
+		for (int j = 1; j < 10; j++) {
+	    		Random random= new Random();  
+	    		
+	    		//os primeiros 4 monstros são colocados na direita enquanto os restantes são colocados na esquerda
+	    		if(j <5) {
+	    			spawnX = CommonsFreezeMonster.BOARD_WIDTH - random.nextInt(CommonsFreezeMonster.MONSTER_SPAWN_WIDTH);
+		    		spawnY = CommonsFreezeMonster.BOARD_HEIGHT- random.nextInt(CommonsFreezeMonster.MONSTER_SPAWN_HEIGHT);; 
+	    		}
+	    		else {
+	    			spawnX = 	0 + random.nextInt(CommonsFreezeMonster.MONSTER_SPAWN_WIDTH);
+		    		spawnY = 0 + random.nextInt(CommonsFreezeMonster.MONSTER_SPAWN_HEIGHT);; 
+	    		}
+	    	    int MONSTER_SPAWN_WIDTH = BOARD_WIDTH - random.nextInt(300);
+	        	Monster monster = new Monster(spawnX,spawnY, j);
                 badSprites.add(monster);
             }
 	}
@@ -52,10 +65,10 @@ public class FreezeMonsterBoard extends AbstractBoard{
         
     	for (AbstractPlayer player: players) {              	
     		   for (BadSprite monster : badSprites) {
+    			  //the collision needs to be checked before the monster moves.
     	        	if(player.collided(monster)) {
-    	    			System.out.println("dying by" + monster.toString());
     	                player.setDying(true);
-    	    			};
+    	        	};
         	        	monster.act();   
     		   }
     		}

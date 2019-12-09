@@ -22,7 +22,7 @@ public class PlayerPerson extends AbstractPlayer{
         String playerImg = "freeze_monster_images/woody.png";
         ImageIcon ii = new ImageIcon(playerImg);
         Utils utils = new Utils();
-        ii = utils.scaleImageIcon(ii, 40, 60);
+        ii = utils.scaleImageIcon(ii, CommonsFreezeMonster.PLAYER_WIDTH, CommonsFreezeMonster.PLAYER_HEIGHT);
         setImage(ii.getImage());
 	 }
 	
@@ -79,10 +79,11 @@ public class PlayerPerson extends AbstractPlayer{
 
 	@Override
 	public boolean collided(BadSprite bad) {
-		int playerPositionWidth = this.getX() + CommonsFreezeMonster.MONSTER_WIDTH;
-		int playerPositionHeight = this.getY() +CommonsFreezeMonster.MONSTER_HEIGHT;
+		int playerPositionWidth = this.getX() + CommonsFreezeMonster.PLAYER_WIDTH ;
+		int playerPositionHeight = this.getY() + CommonsFreezeMonster.PLAYER_HEIGHT;
 		
-//		
+		int monsterPositionWidth = bad.getX() + bad.getImageWidth();
+		int monsterPositionHeight = bad.getY() + bad.getImageHeight();
 //		  if (bombX >= (playerX)
 //                  && bombX <= (playerX + CommonsSpaceInvader.PLAYER_WIDTH)
 //                  && bombY >= (playerY)
@@ -90,9 +91,9 @@ public class PlayerPerson extends AbstractPlayer{
 //		
 			  
 		if(bad.isVisible()) {
-			if(bad.getX() >= this.x 
-			   && bad.getX() <= playerPositionWidth
-			   && bad.getY() >= this.y
+			if(bad.getX() >= this.getX()
+			   && monsterPositionWidth <= playerPositionWidth
+			   && bad.getY() >= this.getY()
 			   && bad.getY() <= playerPositionHeight
 					) {
 				return true;
