@@ -3,6 +3,8 @@ package spriteframework.sprite;
 import java.awt.Image;
 import java.awt.Rectangle;
 
+import javax.swing.ImageIcon;
+
 public class Sprite {
 
     private boolean visible;
@@ -35,12 +37,18 @@ public class Sprite {
 
         this.visible = visible;
     }
+    
 
     public void setImage(Image image) {
 
         this.image = image;
     }
 
+    protected void loadImage(String imageName) {
+        ImageIcon ii = new ImageIcon(imageName);
+        image = ii.getImage();
+    }
+    
     public Image getImage() {
 
         return image;
@@ -77,13 +85,11 @@ public class Sprite {
     }
     
     public Rectangle getRect() {
-
         return new Rectangle(x, y,
                 image.getWidth(null), image.getHeight(null));
     }
 
     public void getImageDimensions() {
-
         imageWidth = image.getWidth(null);
         imageHeight = image.getHeight(null);
     }
@@ -106,4 +112,5 @@ public class Sprite {
 
         this.y += direction;
     }
+    
 }

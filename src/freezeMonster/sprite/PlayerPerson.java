@@ -1,5 +1,7 @@
 package freezeMonster.sprite;
 
+import java.awt.Rectangle;
+
 import javax.swing.ImageIcon;
 
 import freezeMonster.CommonsFreezeMonster;
@@ -79,27 +81,17 @@ public class PlayerPerson extends AbstractPlayer{
 
 	@Override
 	public boolean collided(BadSprite bad) {
-		int playerPositionWidth = this.getX() + CommonsFreezeMonster.PLAYER_WIDTH ;
-		int playerPositionHeight = this.getY() + CommonsFreezeMonster.PLAYER_HEIGHT;
 		
-		int monsterPositionWidth = bad.getX() + bad.getImageWidth();
-		int monsterPositionHeight = bad.getY() + bad.getImageHeight();
-//		  if (bombX >= (playerX)
-//                  && bombX <= (playerX + CommonsSpaceInvader.PLAYER_WIDTH)
-//                  && bombY >= (playerY)
-//                  && bombY <= (playerY + CommonsSpaceInvader.PLAYER_HEIGHT)) {
-//		
-			  
-		if(bad.isVisible()) {
-			if(bad.getX() >= this.getX()
-			   && monsterPositionWidth <= playerPositionWidth
-			   && bad.getY() >= this.getY()
-			   && bad.getY() <= playerPositionHeight
-					) {
-				return true;
-			}
-		}		
+		Rectangle playerRec = this.getRect();
+		Rectangle monsterRec = bad.getRect();
+		
+		if(playerRec.intersects(monsterRec)) {
+			return true;
+		}
+		else {
 		return false;
+		}
+		
 	}
 
 	

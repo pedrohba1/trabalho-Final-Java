@@ -134,7 +134,7 @@ public abstract class AbstractBoard extends JPanel {
         
         if (inGame) {
             drawPlayers(g);
-            drawBadSprites(g);		//se isso aqui fosse um template method mesmo, essse método nessa linha teria que ser abstrato.
+            drawBadSprites(g);		
             drawOtherSprites(g);
         } else {
             if (timer.isRunning()) {

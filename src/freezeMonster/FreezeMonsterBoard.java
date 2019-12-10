@@ -72,7 +72,7 @@ public class FreezeMonsterBoard extends AbstractBoard{
         	        	monster.act();   
     		   }
     		}
-        	//monster movement
+        	//monster movement 	
         	 
         	//if the player collides 
         
