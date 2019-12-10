@@ -51,7 +51,11 @@ public class FreezeMonsterBoard extends AbstractBoard{
 
 	@Override
 	protected void processOtherSprites(AbstractPlayer player, KeyEvent e) {
-		// TODO Auto-generated method stub
+		   //TODO:
+		   //player shoots freezingShot.
+		int key = e.getKeyCode();
+
+		
 		
 	}
 
@@ -62,17 +66,18 @@ public class FreezeMonsterBoard extends AbstractBoard{
         	player.act();
        	}
         
-        
-        //checks if the player collided with the monsters and also moves the monster if 
-        //the player didn't
+       
+        //checks if the player collided with the monsters and moves the monsters
     	for (AbstractPlayer player: players) {              	
     		   for (BadSprite monster : badSprites) {
     	        	if(player.collided(monster)) {
     	                player.setDying(true);
     	        	};
-        	        	monster.act();
+    	        	monster.act();
     		   }
     		}
+    	
+    	
     	
     	//checks if the monster collide if each other. If they collide, change their movement direction
 		   for (BadSprite monster1 : badSprites) {
@@ -85,11 +90,18 @@ public class FreezeMonsterBoard extends AbstractBoard{
 		   
 		   
 		   //TODO:
-		   //checks if monster goo hit player, and if it hits the player dies.
+		   //monsters shoot goos randomly, and each one has one shot.
 		   
 		   
 		   //TODO:
-		   //checks if player shot hits monster, and if it does kills the monster.
+		   //checks if monster goo hit player, and if it hits the player dies.
+		   
+
+		   
+		   //TODO:
+		   //checks if player shot hits monster, and if it does kills the monster
+		   //the 
+			
 		   
         
         
