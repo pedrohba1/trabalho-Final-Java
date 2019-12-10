@@ -18,6 +18,31 @@ public class Sprite {
     protected int dx;
     protected int dy;
 
+    
+    public boolean collided(Sprite sprite) {
+    	Rectangle playerRec = this.getRect();
+		Rectangle monsterRec = sprite.getRect();
+		if(playerRec.intersects(monsterRec)) {
+			return true;
+		}
+		else {
+		return false;
+		}
+    }
+
+    public void interchangeDirections(Sprite sprite) {
+    	int sprite1Dx = this.dx;
+    	int sprite1Dy = this.dy;
+    	int sprite2Dx = sprite.dx;
+    	int sprite2Dy = sprite.dy;
+    	
+    	this.dx = sprite2Dx;
+    	this.dy = sprite2Dy;
+    	
+    	sprite.dx = sprite1Dx;
+    	sprite.dy = sprite1Dy;
+    }
+    
     public Sprite() {
 
         visible = true;

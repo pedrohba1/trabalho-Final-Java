@@ -42,6 +42,62 @@ public class PlayerShip extends AbstractPlayer{
         dx = 2;	
 	}
 	
+	
+		
+	@Override
+	protected void startUpMovement() {
+
+	}
+
+	@Override
+	protected void startDownMovement() {
+		
+	}
+
+	@Override
+	protected void stopLeftMovement() {
+		dx = 0;	
+	}
+
+
+	@Override
+	protected void stopRightMovement() {
+		dx = 0;
+	}
+
+
+	@Override
+	protected void stopUpMovement() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	protected void stopDownMovement() {
+		
+	}
+	
+	@Override
+	protected void playShotSound() {
+	try {
+		playSound("sounds/effects/laser.wav");
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
+
+
+
+	@Override
+	protected void doMovement() {
+		x += dx;
+	}
+
+
+
+
 	@Override
 	public Shot shoot() {
 	  	int x = this.getX();
@@ -59,53 +115,7 @@ public class PlayerShip extends AbstractPlayer{
             x = 1 ;
         }		
 	}
-		
-	@Override
-	protected void startUpMovement() {
-
-	}
-
-	@Override
-	protected void startDownMovement() {
-		
-	}
-
-	@Override
-	protected void playShotSound() {
-	try {
-		playSound("sounds/effects/laser.wav");
-	} catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	}
-
-
-	@Override
-	protected void stopHorizontalMovement() {
-		dx = 0;
-		
-	}
-
-
-	@Override
-	protected void stopVerticalMovement() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	protected void doMovement() {
-		x += dx;
-	}
-
-
-	@Override
-	public boolean collided(BadSprite bad) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 	
 	
 	

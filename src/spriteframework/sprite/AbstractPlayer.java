@@ -21,17 +21,17 @@ public abstract class AbstractPlayer extends Sprite {
     protected abstract void startRightMovement();
     protected abstract void startUpMovement();
     protected abstract void startDownMovement();
-    protected abstract void stopHorizontalMovement();
-    protected abstract void stopVerticalMovement();
+    
+    protected abstract void stopLeftMovement();
+    protected abstract void stopRightMovement();
+    protected abstract void stopUpMovement();
+    protected abstract void stopDownMovement();
+
     protected abstract void doMovement();
     public abstract Shot shoot();
-    public abstract boolean collided(BadSprite bad);
-    
-    
     
     //outros métodos:
     protected abstract void warpOnEdges();
-    
     protected abstract void playShotSound();
     
     public void act() {
@@ -67,16 +67,16 @@ public abstract class AbstractPlayer extends Sprite {
         
     	switch (key){
         case KeyEvent.VK_LEFT:
-        	stopHorizontalMovement();
+        	stopLeftMovement();
         	break;
         case KeyEvent.VK_RIGHT:
-        	stopHorizontalMovement();
+        	stopRightMovement();
         	break;
         case KeyEvent.VK_UP:
-        	stopVerticalMovement();
+        	stopUpMovement();
         	break;
         case KeyEvent.VK_DOWN:
-        	stopVerticalMovement();
+        	stopDownMovement();
         	break;
         	
     	}

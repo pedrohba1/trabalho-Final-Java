@@ -10,6 +10,7 @@ import spaceinvaders.sprite.Shot;
 import spriteframework.Utils;
 import spriteframework.sprite.AbstractPlayer;
 import spriteframework.sprite.BadSprite;
+import spriteframework.sprite.Sprite;
 
 public class PlayerPerson extends AbstractPlayer{
 
@@ -49,13 +50,26 @@ public class PlayerPerson extends AbstractPlayer{
 	}
 
 	@Override
-	protected void stopHorizontalMovement() {
-		dx = 0;		
+	protected void stopLeftMovement() {
+		dx = 0;
 	}
 
-	protected void stopVerticalMovement() {
+	@Override
+	protected void stopRightMovement() {
+		dx = 0;
+	}
+
+	@Override
+	protected void stopUpMovement() {
 		dy = 0;
 	}
+
+	@Override
+	protected void stopDownMovement() {
+		dy = 0;
+	}
+
+	
 	
 	@Override
 	public Shot shoot() {
@@ -79,21 +93,5 @@ public class PlayerPerson extends AbstractPlayer{
 		y += dy;
 	}
 
-	@Override
-	public boolean collided(BadSprite bad) {
-		
-		Rectangle playerRec = this.getRect();
-		Rectangle monsterRec = bad.getRect();
-		
-		if(playerRec.intersects(monsterRec)) {
-			return true;
-		}
-		else {
-		return false;
-		}
-		
-	}
-
-	
 
 }

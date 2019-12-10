@@ -53,9 +53,14 @@ public class Monster extends BadSprite{
 	        }
 	        
 	}
+	
+
 
 	@Override
 	protected void doMovement() {
+		//make some random movement if this random integer hits 
+		randomMovement();
+		
 		String move = InEdges();
 		if(move != null) {
 			changeMoveDirection(move);
@@ -92,4 +97,30 @@ public class Monster extends BadSprite{
         	break;	
 		}
 	}
+	private void changeMoveDirection(int direction) {
+		switch (direction){
+        case 0:
+        	dy = 1;
+        	break;
+        case 1:
+        	dy = -1;
+        	break;
+        case 2:
+        	dx = 1;
+        	break;
+        case 3:
+        	dx = -1;
+        	break;	
+		}
+	}
+	
+	private void randomMovement() {
+		Random random = new Random();
+		//if you want to increase frequency of movement chance just tick the right value;
+		int randirect = random.nextInt(4);
+		if(random.nextInt(1000) > 950) {
+			changeMoveDirection(randirect);
+		}
+	}
+	
 }
