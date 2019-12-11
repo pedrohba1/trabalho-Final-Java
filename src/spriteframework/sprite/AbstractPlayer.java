@@ -28,7 +28,7 @@ public abstract class AbstractPlayer extends Sprite {
     protected abstract void stopDownMovement();
 
     protected abstract void doMovement();
-    public abstract Shot shoot();
+    public abstract BadSprite shoot();
     
     //outros métodos:
     protected abstract void warpOnEdges();
@@ -55,10 +55,6 @@ public abstract class AbstractPlayer extends Sprite {
         case KeyEvent.VK_DOWN:
         	startDownMovement();
         	break;
-//		TODO: procurar algum jeito de fazer o tiro funcionar aqui dentro
-//        case KeyEvent.VK_SPACE:
-//        	shoot();
-//        	break;
     	}
     }
 

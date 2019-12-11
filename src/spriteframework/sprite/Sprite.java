@@ -20,9 +20,10 @@ public class Sprite {
 
     
     public boolean collided(Sprite sprite) {
-    	Rectangle playerRec = this.getRect();
-		Rectangle monsterRec = sprite.getRect();
-		if(playerRec.intersects(monsterRec)) {
+    
+    	Rectangle Rec1 = this.getRect();
+		Rectangle Rec2 = sprite.getRect();
+		if(Rec1.intersects(Rec2) && this.isVisible() && sprite.isVisible()) {
 			return true;
 		}
 		else {
@@ -30,7 +31,7 @@ public class Sprite {
 		}
     }
 
-    public void interchangeDirections(Sprite sprite) {
+    public void interchangeDirectionsWith(Sprite sprite) {
     	int sprite1Dx = this.dx;
     	int sprite1Dy = this.dy;
     	int sprite2Dx = sprite.dx;

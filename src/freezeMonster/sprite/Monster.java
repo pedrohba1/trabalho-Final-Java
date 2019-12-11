@@ -29,7 +29,7 @@ public class Monster extends BadSprite{
 	        ii = utils.scaleImageIcon(ii, CommonsFreezeMonster.MONSTER_WIDTH, CommonsFreezeMonster.MONSTER_HEIGHT);
 	        setImage(ii.getImage());
 	        
-	        
+	        	
 	        //gera uma direção inicial aleatória:
 	        Random random = new Random();
 	        int direction = random.nextInt(4);

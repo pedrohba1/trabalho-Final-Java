@@ -31,8 +31,9 @@ public abstract class AbstractBoard extends JPanel {
     protected int BOARD_HEIGHT;
     
     protected LinkedList<AbstractPlayer> players;
-    protected LinkedList<BadSprite> badSprites;
-    protected Shot shot;
+    protected LinkedList<BadSprite> enemies;
+    protected LinkedList <BadSprite> enemiesShots;
+    protected BadSprite playerShot;
     
     protected boolean inGame = true;
     protected String message = "Game Over";
@@ -68,7 +69,7 @@ public abstract class AbstractBoard extends JPanel {
     	timer = new Timer(Commons.DELAY, new GameCycle());
     	timer.start();
 
-    	badSprites = new LinkedList<BadSprite>();
+    	enemies = new LinkedList<BadSprite>();
     	players = new LinkedList<AbstractPlayer>();
     	
     	createBadSprites();
@@ -85,7 +86,7 @@ public abstract class AbstractBoard extends JPanel {
    
    
     private void drawBadSprites(Graphics g) {
-        for (BadSprite bad : badSprites) {
+        for (BadSprite bad : enemies) {
             if (bad.isVisible()) {
                 g.drawImage(bad.getImage(), bad.getX(), bad.getY(), this);
             }

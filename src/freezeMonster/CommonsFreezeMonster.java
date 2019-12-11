@@ -22,5 +22,8 @@ public interface CommonsFreezeMonster extends spriteframework.Commons{
     
     int MONSTER_SPAWN_WIDTH = 300;
     int MONSTER_SPAWN_HEIGHT =  200;
-        
+    
+    
+    int SHOT_WIDTH = 20;
+    int SHOT_HEIGHT = 20;
 }

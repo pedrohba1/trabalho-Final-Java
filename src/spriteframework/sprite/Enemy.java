@@ -2,7 +2,7 @@ package spriteframework.sprite;
 
 import java.util.LinkedList;
 
-public abstract class BadSprite extends Sprite {
+public abstract  class Enemy extends BadSprite{
 	
 	protected abstract void doMovement();
 	
@@ -15,9 +15,4 @@ public abstract class BadSprite extends Sprite {
 	public void act() {
 		doMovement();
 	}
-	
-	
-	
-
-	
 }

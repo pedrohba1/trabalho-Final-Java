@@ -43,17 +43,6 @@ public class PlayerShip extends AbstractPlayer{
 	}
 	
 	
-		
-	@Override
-	protected void startUpMovement() {
-
-	}
-
-	@Override
-	protected void startDownMovement() {
-		
-	}
-
 	@Override
 	protected void stopLeftMovement() {
 		dx = 0;	
@@ -66,17 +55,7 @@ public class PlayerShip extends AbstractPlayer{
 	}
 
 
-	@Override
-	protected void stopUpMovement() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	protected void stopDownMovement() {
-		
-	}
+	
 	
 	@Override
 	protected void playShotSound() {
@@ -114,6 +93,35 @@ public class PlayerShip extends AbstractPlayer{
         if (x >= CommonsSpaceInvader.BOARD_WIDTH - 23) {
             x = 1 ;
         }		
+	}
+
+
+	//métodos não implementados que não vou usar nesse caso.
+	@Override
+	protected void startUpMovement() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	protected void startDownMovement() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	protected void stopUpMovement() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	protected void stopDownMovement() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

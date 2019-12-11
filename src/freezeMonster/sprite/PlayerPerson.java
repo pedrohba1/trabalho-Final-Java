@@ -14,7 +14,8 @@ import spriteframework.sprite.Sprite;
 
 public class PlayerPerson extends AbstractPlayer{
 
-	
+	public String facingDirection;
+		
 	public PlayerPerson() {
 		initPlayerPerson(CommonsFreezeMonster.PLAYER_INIT_X, CommonsFreezeMonster.PLAYER_INIT_Y);
 	}
@@ -32,21 +33,25 @@ public class PlayerPerson extends AbstractPlayer{
 	@Override
 	protected void startLeftMovement() {
 		dx = -3;
+		this.facingDirection = "left";
 	}
 
 	@Override
 	protected void startRightMovement() {
         dx = 3;
+		this.facingDirection = "right";
 	}
 
 	@Override
 	protected void startUpMovement() {
 		dy = -3;
+		this.facingDirection = "up";
 	}
 
 	@Override
 	protected void startDownMovement() {
 		dy = 3;
+		this.facingDirection = "down";
 	}
 
 	@Override
@@ -72,18 +77,37 @@ public class PlayerPerson extends AbstractPlayer{
 	
 	
 	@Override
-	public Shot shoot() {
-		// TODO Auto-generated method stub
-		return null;
+	public BadSprite shoot() {
+		playShotSound();
+		return new FreezingShot(this.x, this.y ,this.facingDirection);
 	}
+	
+	
 
 	@Override
 	protected void warpOnEdges() {
+		 if (x <= 0) {
+	        	x = CommonsFreezeMonster.BOARD_WIDTH - 25;
+	        }
+	        if (x >= CommonsFreezeMonster.BOARD_WIDTH - 23) {
+	            x = 1 ;
+	        }
+	      if( y <=0) {
+	    	  y = CommonsFreezeMonster.BOARD_HEIGHT-25;
+	      }
+	      if(y >= CommonsFreezeMonster.BOARD_HEIGHT-23) {
+	    	  y = 1;
+	      }
 	}
 
 	@Override
 	protected void playShotSound() {
-		// TODO Auto-generated method stub
+		try {
+			playSound("sounds/effects/irru.wav");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
