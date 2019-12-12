@@ -51,15 +51,24 @@ public class FreezeMonsterBoard extends AbstractBoard{
 			playerShot = new FreezingShot();
 	}
 	
-	  private void drawShot(Graphics g) {
+	  private void drawShots(Graphics g) {
 	    	if (playerShot.isVisible()) {
 	            g.drawImage(playerShot.getImage(), playerShot.getX(), playerShot.getY(), this);
 	        }
-	    }
+	    
+	    	for(BadSprite monster: enemies) {
+	    		BadSprite shot = monster.getBad();		
+
+	    		if(shot.isVisible()) {
+	              g.drawImage(shot.getImage(), shot.getX(),shot.getY(), this);
+	    		}
+	    	}
+	  
+	  }
 	  
  	@Override
 	protected void drawOtherSprites(Graphics g) {
-        drawShot(g);		
+        drawShots(g);		
 	}
 
 	@Override
@@ -120,26 +129,39 @@ public class FreezeMonsterBoard extends AbstractBoard{
 				playerShot.act();
 			}
 			
-			
+
 			//TODO: if the playershot hits the monster, the monster dies:
+			   //a static image is drawn.
+
 			   for (BadSprite monster : enemies) {
 				   if(playerShot.collided(monster)) {
-					   monster.die();
+					   monster.setDying(true);
 					   playerShot.die();
 				   }
 			   }
 		  
 		   
+			   //monsters shoot;
+			   for (BadSprite monster: enemies) {
+				   monster.shoot();
+				   monster.getBad().act();
+			      }
 			   
-	
-		   //TODO:
+			   
+			//TODO:
 		   //checks if monster goo hit player, and if it hits the player dies.
-		   
+			for (AbstractPlayer player: players) {
+				   for (BadSprite monster: enemies) {
+					   	if (player.collided(monster.getBad())){
+					   		player.setDying(true);
+					   	}
+				   }
+			}
+		 
 
 		   
 		   //TODO:
 		   //checks if player shot hits monster, and if it does kills the monster
-		   //the image of the monster is changed to a static image.
 			
 		   
         

@@ -1,5 +1,6 @@
 package freezeMonster.sprite;
 
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
@@ -9,10 +10,12 @@ import freezeMonster.CommonsFreezeMonster;
 import spaceinvaders.sprite.Bomb;
 import spriteframework.Utils;
 import spriteframework.sprite.BadSprite;
+import spriteframework.sprite.Sprite;
 
 public class Monster extends BadSprite{
 	
 	public int monsterNumber;
+	private MonsterGoo goo;
 	
 	public Monster (int x,int y, int monsterNumber) {
 		initMonster(x,y, monsterNumber);
@@ -22,6 +25,7 @@ public class Monster extends BadSprite{
 			this.x = x;
 	        this.y = y;
 	        this.monsterNumber = monsterNumber;
+	        this.goo = new MonsterGoo();
 	        
 	        String monsterImg = "freeze_monster_images/monster" + monsterNumber + ".png" ;
 	        ImageIcon ii = new ImageIcon(monsterImg);	        
@@ -55,7 +59,16 @@ public class Monster extends BadSprite{
 	}
 	
 
-
+	public void setDyingImage() {
+	     String monsterImg = "freeze_monster_images/monster" + monsterNumber + "bg.png" ;
+	        ImageIcon ii = new ImageIcon(monsterImg);	        
+	        Utils utils = new Utils();
+	        ii = utils.scaleImageIcon(ii, CommonsFreezeMonster.MONSTER_WIDTH, CommonsFreezeMonster.MONSTER_HEIGHT);
+	        setImage(ii.getImage());
+	}
+	
+	
+	
 	@Override
 	protected void doMovement() {
 		//make some random movement if this random integer hits 
@@ -114,6 +127,15 @@ public class Monster extends BadSprite{
 		}
 	}
 	
+	public void shoot() {
+		if(!this.goo.isVisible() && this.isVisible()) {
+		Random rand = new Random();
+		String directions[] = {"up", "down","left","right"};
+		this.goo = new MonsterGoo(this.x,this.y, directions[rand.nextInt(directions.length)]);
+		}
+	}
+    
+	
 	private void randomMovement() {
 		Random random = new Random();
 		//if you want to increase frequency of movement chance just tick the right value;
@@ -122,5 +144,19 @@ public class Monster extends BadSprite{
 			changeMoveDirection(randirect);
 		}
 	}
+
+	@Override
+	public BadSprite getBad() {
+		return this.goo;
+	}
+	
+	@Override
+	public void die() {
+    	dx = 0;
+    	dy = 0;
+    	this.setDyingImage();
+    	this.getBad().die();
+	}
+
 	
 }

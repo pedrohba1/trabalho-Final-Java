@@ -50,7 +50,8 @@ public class Sprite {
     }
 
     public void die() {
-
+    	dx = 0;
+    	dy = 0;
         visible = false;
     }
 

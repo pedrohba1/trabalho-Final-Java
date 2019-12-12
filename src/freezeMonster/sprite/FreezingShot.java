@@ -81,5 +81,17 @@ public class FreezingShot extends BadSprite{
 	    	  this.die();
 	      }
 	}
+
+	@Override
+	public BadSprite getBad() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void shoot() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

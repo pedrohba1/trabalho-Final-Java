@@ -16,6 +16,11 @@ public abstract class BadSprite extends Sprite {
 		doMovement();
 	}
 	
+	public abstract BadSprite getBad();
+
+	public abstract void shoot();
+
+	public abstract void setDyingImage();
 	
 	
 
