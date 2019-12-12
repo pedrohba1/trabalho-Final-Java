@@ -67,7 +67,7 @@ public class Monster extends BadSprite{
 	        ImageIcon ii = new ImageIcon(monsterImg);	        
 	        Utils utils = new Utils();
 	        ii = utils.scaleImageIcon(ii, CommonsFreezeMonster.MONSTER_WIDTH, CommonsFreezeMonster.MONSTER_HEIGHT);
-	        setImage(ii.getImage());
+	        this.setImage(ii.getImage());
 	}
 	
 	
@@ -147,8 +147,6 @@ public class Monster extends BadSprite{
 			changeMoveDirection(randirect);
 		}
 	}
-
-	
 	
 	@Override
 	public BadSprite getBad() {
@@ -156,11 +154,10 @@ public class Monster extends BadSprite{
 	}
 
 	@Override
-	public ImageIcon DyingAnimation(Graphics g) {
-        String monsterImg = "freeze_monster_images/monster" + monsterNumber + "b.png" ;
-        ImageIcon ii = new ImageIcon(monsterImg);	        
-        Utils utils = new Utils();
-        return ii = utils.scaleImageIcon(ii, CommonsFreezeMonster.MONSTER_WIDTH, CommonsFreezeMonster.MONSTER_HEIGHT);
-    }
+	public void DyingAnimation() {
+        this.setDyingImage();
+        dx = 0;
+        dy = 0;
+	}
 
 }

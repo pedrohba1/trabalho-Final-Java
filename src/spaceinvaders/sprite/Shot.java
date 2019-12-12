@@ -55,8 +55,10 @@ public class Shot extends BadSprite {
 	}
 
 	@Override
-	public ImageIcon DyingAnimation(Graphics g) {
+	public void DyingAnimation() {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
+
+	
 }

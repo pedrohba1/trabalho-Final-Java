@@ -139,6 +139,7 @@ public class FreezeMonsterBoard extends AbstractBoard{
 
 			   for (BadSprite monster : enemies) {
 				   if(playerShot.collided(monster)) {
+					   monster.setDyingImage();
 					   monster.setDying(true);
 					   playerShot.die();
 					   deaths++;

@@ -25,7 +25,7 @@ public abstract class BadSprite extends Sprite {
 
 	public abstract void setDyingImage();
 	
-	public abstract ImageIcon DyingAnimation(Graphics g);
+	public abstract  void DyingAnimation();
 	
 
 	
