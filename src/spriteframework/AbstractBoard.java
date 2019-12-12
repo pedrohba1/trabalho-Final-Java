@@ -1,6 +1,7 @@
 package spriteframework;
 
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -92,7 +93,7 @@ public abstract class AbstractBoard extends JPanel {
             }
 
             if (bad.isDying()) {
-                bad.die();
+            	bad.die();
             }
             if (bad.getBadnesses()!= null) {
             	for (BadSprite badness: bad.getBadnesses()) {

@@ -1,7 +1,10 @@
 package freezeMonster.sprite;
 
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.awt.image.ImageObserver;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -145,18 +148,19 @@ public class Monster extends BadSprite{
 		}
 	}
 
+	
+	
 	@Override
 	public BadSprite getBad() {
 		return this.goo;
 	}
-	
-	@Override
-	public void die() {
-    	dx = 0;
-    	dy = 0;
-    	this.setDyingImage();
-    	this.getBad().die();
-	}
 
-	
+	@Override
+	public ImageIcon DyingAnimation(Graphics g) {
+        String monsterImg = "freeze_monster_images/monster" + monsterNumber + "b.png" ;
+        ImageIcon ii = new ImageIcon(monsterImg);	        
+        Utils utils = new Utils();
+        return ii = utils.scaleImageIcon(ii, CommonsFreezeMonster.MONSTER_WIDTH, CommonsFreezeMonster.MONSTER_HEIGHT);
+    }
+
 }

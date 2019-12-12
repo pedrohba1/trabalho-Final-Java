@@ -4,9 +4,8 @@ import java.util.Random;
 
 public interface CommonsFreezeMonster extends spriteframework.Commons{
 
-	Random random = new Random();
 	
-	
+	int NUMBER_OF_ALIENS_TO_DESTROY = 9;
     int BOARD_WIDTH = 800;
     int BOARD_HEIGHT = 600;
     

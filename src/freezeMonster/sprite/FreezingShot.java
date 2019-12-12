@@ -1,5 +1,7 @@
 package freezeMonster.sprite;
 
+import java.awt.Graphics;
+
 import javax.swing.ImageIcon;
 
 import freezeMonster.CommonsFreezeMonster;
@@ -92,6 +94,18 @@ public class FreezingShot extends BadSprite{
 	public void shoot() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void setDyingImage() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ImageIcon DyingAnimation(Graphics g) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

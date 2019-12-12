@@ -17,6 +17,8 @@ import spriteframework.sprite.BadSprite;
 
 public class FreezeMonsterBoard extends AbstractBoard{
 
+	
+	private int  deaths = 0;
 	@Override
 	protected void createBadSprites() {
 		int spawnX;
@@ -87,7 +89,16 @@ public class FreezeMonsterBoard extends AbstractBoard{
 
 	@Override
 	protected void update() {
-		   // player movement
+
+		   if (deaths == CommonsFreezeMonster.NUMBER_OF_ALIENS_TO_DESTROY) {
+	            inGame = false;
+	            timer.stop();
+	            message = "Game won!";
+	        }
+		
+		
+		
+		// player movement
         for (AbstractPlayer player: players) {
         	player.act();
        	}
@@ -116,13 +127,6 @@ public class FreezeMonsterBoard extends AbstractBoard{
 		   }
 		   
 		   
-		   //TODO:
-		   //monsters shoot goos randomly, and each one has one shot.
-			Random generator = new Random();
-			for(BadSprite monster : enemies) {
-			//monster.shoot(generator.nextInt(700));
-			}
-			
 		
 		   //TODO: if the shot is visible, it acts
 			if(playerShot.isVisible()) {
@@ -137,6 +141,7 @@ public class FreezeMonsterBoard extends AbstractBoard{
 				   if(playerShot.collided(monster)) {
 					   monster.setDying(true);
 					   playerShot.die();
+					   deaths++;
 				   }
 			   }
 		  
@@ -187,5 +192,7 @@ public class FreezeMonsterBoard extends AbstractBoard{
         g.fillRect(0, 0, d.width, d.height);
         super.setBackground(Color.black);
  	}
+
+	
 
 }

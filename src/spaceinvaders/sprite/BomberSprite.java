@@ -1,5 +1,6 @@
 package spaceinvaders.sprite;
 
+import java.awt.Graphics;
 import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
@@ -43,5 +44,29 @@ public class BomberSprite extends BadSprite {
 	protected void doMovement() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public BadSprite getBad() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void shoot() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setDyingImage() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ImageIcon DyingAnimation(Graphics g) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

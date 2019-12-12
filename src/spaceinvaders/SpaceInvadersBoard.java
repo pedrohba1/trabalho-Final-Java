@@ -22,6 +22,10 @@ import spaceinvaders.sprite.*;
 public class SpaceInvadersBoard extends AbstractBoard{  
 
   
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int direction = -1;
     private int deaths = 0;
     private String explImg = "space_invaders_images/explosion.png";
@@ -223,5 +227,7 @@ public class SpaceInvadersBoard extends AbstractBoard{
     	g.drawLine(0, CommonsSpaceInvader.GROUND,CommonsSpaceInvader.BOARD_WIDTH, CommonsSpaceInvader.GROUND);
         super.setBackground(Color.black);
 	}
+
+
 }
 

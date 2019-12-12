@@ -1,5 +1,6 @@
 package freezeMonster.sprite;
 
+import java.awt.Graphics;
 import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
@@ -102,6 +103,12 @@ public class MonsterGoo extends BadSprite{
 	public void setDyingImage() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public ImageIcon DyingAnimation(Graphics g) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

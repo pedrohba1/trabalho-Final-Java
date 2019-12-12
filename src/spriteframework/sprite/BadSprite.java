@@ -1,6 +1,9 @@
 package spriteframework.sprite;
 
+import java.awt.Graphics;
 import java.util.LinkedList;
+
+import javax.swing.ImageIcon;
 
 public abstract class BadSprite extends Sprite {
 	
@@ -22,6 +25,7 @@ public abstract class BadSprite extends Sprite {
 
 	public abstract void setDyingImage();
 	
+	public abstract ImageIcon DyingAnimation(Graphics g);
 	
 
 	
