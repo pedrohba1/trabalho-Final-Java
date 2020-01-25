@@ -1,6 +1,6 @@
 # Java Games
 
-Two Java games made using Abstract Factory pattern Project.
+Two Java games made using Abstract Factory pattern.
 
 Space Invaders:
 
